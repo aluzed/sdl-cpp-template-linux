@@ -13,7 +13,7 @@ game: ./build/main.o
 ./build/player.o: ./src/player.cpp ./build/window.o
 	$(CC) -o ./build/player.o -c ./src/player.cpp -I ./include $(CFLAGS)
 
-./build/window.o: ./src/window.cpp
+./build/window.o: ./src/window.cpp buildfolder
 	$(CC) -o ./build/window.o -c ./src/window.cpp -I ./include $(CFLAGS)
 
 #for testing sdl lib
@@ -22,3 +22,6 @@ testsdl: testsdl.cpp
 
 clean:
 	rm -rf build/*
+
+buildfolder:
+	@mkdir build

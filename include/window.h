@@ -14,7 +14,7 @@ class Window
         Window(const std::string &title, int width, int height);
         virtual ~Window();
 
-        void pollEvents();
+        void pollEvents(SDL_Event &event);
         void clear() const;
 
         inline bool isClosed() const { return _closed; }
@@ -23,8 +23,7 @@ class Window
         int getScreenWidth() const { return _width; }
         int getScreenHeight() const { return _height; }
 
-    protected:
-        SDL_Renderer* _renderer = nullptr;
+        static SDL_Renderer* renderer;
 
     private:
         bool init();

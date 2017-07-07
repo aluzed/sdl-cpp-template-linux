@@ -4,23 +4,24 @@
 #define PLAYER_H
 #include "window.h"
 
-class Player : public Window
+class Player
 {
     public:
-        Player(const Window &window);
+        Player(const std::string &sprite_path);
         virtual ~Player();
 
         void draw() const;
-        void pollEvents();
+        void pollEvents(SDL_Event &event);
 
     protected:
 
     private:
-        int _w = 120;
-        int _h = 120;
+        int _w = 240;
+        int _h = 240;
         int _x = 100;
         int _y = 100;
         bool _waitingForAction = true;
+        SDL_Texture *_texture = nullptr;
 };
 
 #endif // PLAYER_H

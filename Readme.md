@@ -2,10 +2,7 @@
 My template for a C++ SDL2 on linux
 
 ## Install those packages
-* apt-get install libsdl2-dev
-* apt-get install libsdl2-image-dev
-* apt-get install libsdl2-mixer-dev
-* apt-get install libsdl2-ttf-dev
+* apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
 
 ## Option
 ### Download and compile SDL2

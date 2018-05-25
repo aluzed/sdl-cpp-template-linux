@@ -6,14 +6,16 @@ Player::Player(const std::string &sprite_path)
     auto surface = IMG_Load(sprite_path.c_str());
     if(!surface)
     {
-        std::cerr << "Fail to load the surface" << std::endl;
+        // std::cerr << "Fail to load the surface" << std::endl;
+        Tools::err("Fail to load the surface");
     }
 
     _texture = SDL_CreateTextureFromSurface(Window::renderer, surface);
 
     if(!_texture)
     {
-        std::cerr << "Fail to create texture" << std::endl;
+        // std::cerr << "Fail to create texture" << std::endl;
+        Tools::err("Fail to create texture");
     }
 
     SDL_FreeSurface(surface);
@@ -47,20 +49,20 @@ void Player::pollEvents(SDL_Event &event)
         switch(event.key.keysym.sym)
         {
             case SDLK_UP:
-                std::cout << "key up pressed" << std::endl;
+                Tools::debug("key up");
                 _y -= 5;
                 break;
             case SDLK_DOWN:
-                std::cout << "key down pressed" << std::endl;
+                Tools::debug("key down");
                 _y += 5;
                 break;
             case SDLK_LEFT:
                 _x -= 5;
-                std::cout << "key left pressed" << std::endl;
+                Tools::debug("key left pressed");
                 break;
             case SDLK_RIGHT:
                 _x += 5;
-                std::cout << "key right pressed" << std::endl;
+                Tools::debug("key right pressed");
                 break;
             // case SDLK_RIGHT+SDLK_UP:
                // _x += 5;

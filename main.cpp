@@ -2,6 +2,7 @@
 #include "window.h"
 #include "player.h"
 #include "text.h"
+#include "tools.h"
 #define WIN_WIDTH 640
 #define WIN_HEIGHT 480
 

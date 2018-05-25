@@ -1,0 +1,13 @@
+{
+  "name": "sdl-cpp-template-linux",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aluzed/sdl-cpp-template-linux",
+  "author": "Alexandre PENOMBRE <alexandre.penombre+Github@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "deep-scan": "^1.0.1",
+    "handlebars": "^4.0.11",
+    "json-beautify": "^1.0.1"
+  }
+}

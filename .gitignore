@@ -1,3 +1,5 @@
 build/
 game
 testsdl
+node_modules/
+builder/dependencies.json

@@ -4,6 +4,7 @@
 #define WINDOW_H
 #include <string>
 #include <iostream>
+#include "tools.h"
 #include "SDL2/SDL.h"
 
 enum GameContext { GAME, MENU, CUTSCENE };
@@ -35,7 +36,6 @@ class Window
         bool _closed = false;
 
         SDL_Window* _window = nullptr;
-
         GameContext _gameContext = GameContext::GAME;
 };
 

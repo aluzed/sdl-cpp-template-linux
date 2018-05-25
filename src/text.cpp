@@ -24,21 +24,21 @@ SDL_Texture *Text::loadFont(SDL_Renderer *renderer, const std::string &font_path
     TTF_Font *font = TTF_OpenFont(font_path.c_str(), font_size);
     if(!font)
     {
-        std::cerr << "Failed to load font" << std::endl;
+        Tools::err("Failed to load font");
     }
 
     auto text_surface = TTF_RenderText_Solid(font, message_text.c_str(), color);
 
     if(!text_surface)
     {
-        std::cerr << "Failed to create text surface" << std::endl;
+        Tools::err("Failed to create text surface");
     }
 
     auto text_texture = SDL_CreateTextureFromSurface(renderer, text_surface);
 
     if(!text_texture)
     {
-        std::cerr << "Failed to create text texture" << std::endl;
+        Tools::err("Failed to create text texture");
     }
 
     SDL_FreeSurface(text_surface);

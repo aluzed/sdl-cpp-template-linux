@@ -3,6 +3,7 @@
 #ifndef TEXT_H
 #define TEXT_H
 #include "SDL2/SDL_ttf.h"
+#include "tools.h"
 #include <iostream>
 
 class Text

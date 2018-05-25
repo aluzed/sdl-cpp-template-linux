@@ -1,0 +1,26 @@
+CC=g++
+CFLAGS=-lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -std=c++11
+EXEC=game
+
+all: clean buildfolder $(EXEC)
+
+game: {{{relativeBuildPath}}}{{main}}.o
+	$(CC) {{{relativeBuildPath}}}*.o -o game $(CFLAGS)
+
+{{{relativeBuildPath}}}{{main}}.o: {{main}}.cpp {{#each classNames}}{{{relativeBuildPath}}}{{{name}}}.o {{/each}}
+	$(CC) -o {{{relativeBuildPath}}}{{main}}.o -c {{main}}.cpp -I {{{relativeIncludePath}}} $(CFLAGS)
+
+{{#each classNames}}
+{{> objTpl}}
+
+{{/each}}
+
+#for testing sdl lib
+testsdl: testsdl.cpp
+	$(CC) -o testsdl testsdl.cpp -lSDL2main -lSDL2
+
+clean:
+	rm -rf build/
+
+buildfolder:
+	@mkdir build

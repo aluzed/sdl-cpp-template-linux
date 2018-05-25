@@ -3,6 +3,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "window.h"
+#include "tools.h"
 
 class Player
 {

@@ -2,7 +2,19 @@
 My template for a C++ SDL2 on linux
 
 ## Install those packages
-* apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+```
+apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+npm install # or yarn install
+```
+
+## Build project
+
+In a terminal : 
+
+```
+node make.js
+make
+```
 
 ## Option
 ### Download and compile SDL2

@@ -65,10 +65,11 @@ void Window::pollEvents(SDL_Event &event)
         case SDL_QUIT: _closed = true; break;
         case SDL_KEYDOWN:
             switch(event.key.keysym.sym)
-            {
-                case SDLK_UP:
-                    std::cout << "key up pressed" << std::endl;
-                    break;
+            { 
+              case SDLK_ESCAPE:
+                Tools::debug("escape key");
+              break; 
+              
             }
             break;
         /*

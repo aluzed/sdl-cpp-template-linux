@@ -1,0 +1,2 @@
+{{{relativeBuildPath}}}{{name}}.o: {{{relativeSrcPath}}}{{name}}.cpp {{#each dependencies}}{{{../relativeBuildPath}}}{{this}} {{/each}}
+	$(CC) -o {{{relativeBuildPath}}}{{name}}.o -c {{{relativeSrcPath}}}{{{name}}}.cpp -I {{{relativeIncludePath}}} $(CFLAGS)

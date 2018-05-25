@@ -13,6 +13,9 @@ const DeepScan = require('deep-scan');
 const beautify = require("json-beautify");
 const config = require('./builder/config.json');
 
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
 // Paths
 const makefilePath = path.join(__dirname, 'Makefile');
 const dependenciesPath = path.join(__dirname, './builder/dependencies.json');
@@ -94,9 +97,22 @@ function renderMakeFile() {
   let makeStr = skelTpl(data);
 
   fs.writeFileSync(makefilePath, makeStr);
-  console.log('done.');
+  console.log('Make file generated');
 }
 
 readHeaderDependencies();
 
 renderMakeFile();
+
+async function make() {
+  console.log('Building...');
+
+  const { stdout, stderr } = await exec('make');
+  console.log(stdout);
+
+  if(stderr.trim() !== "") {
+    console.error(stderr);
+  }
+}
+
+make();

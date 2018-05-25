@@ -7,14 +7,14 @@ all: clean buildfolder $(EXEC)
 game: ./build/main.o
 	$(CC) ./build/*.o -o game $(CFLAGS)
 
-./build/main.o: main.cpp ./build/window.o ./build/tools.o ./build/player.o ./build/text.o 
+./build/main.o: main.cpp ./build/tools.o ./build/window.o ./build/player.o ./build/text.o 
 	$(CC) -o ./build/main.o -c main.cpp -I ./include $(CFLAGS)
-
-./build/window.o: ./src/window.cpp 
-	$(CC) -o ./build/window.o -c ./src/window.cpp -I ./include $(CFLAGS)
 
 ./build/tools.o: ./src/tools.cpp 
 	$(CC) -o ./build/tools.o -c ./src/tools.cpp -I ./include $(CFLAGS)
+
+./build/window.o: ./src/window.cpp ./build/tools.o 
+	$(CC) -o ./build/window.o -c ./src/window.cpp -I ./include $(CFLAGS)
 
 ./build/player.o: ./src/player.cpp ./build/window.o ./build/tools.o 
 	$(CC) -o ./build/player.o -c ./src/player.cpp -I ./include $(CFLAGS)
